@@ -1,0 +1,146 @@
+**CODE FOR TICTAC.8xp**
+ClrHome
+{3,3}→dim([A])
+Fill(0,[A])
+0→X:0→Y
+0→T
+Output(5,6,"-----"
+Output(3,6,"-----"
+Output(2,6," I I "
+Output(4,6," I I "
+Output(6,6," I I "
+0→A
+0→C
+Output(8,5,"TURN:")
+While A≠45 and C<9
+If not(T)
+Output(8,10,"O")
+If T
+Output(8,10,"X")
+­1→X:­1→Y
+0→A
+While A=0
+getKey→A
+End
+If T=1
+"X"→Str1
+If T=0
+"O"→Str1
+If A=72 and [A](1,1)=0
+Then
+1→X:1→Y
+Output(2,6,Str1)
+((Str1="O")+1)→[A](1,1)
+End
+If A=73 and [A](1,2)=0
+Then
+2→X:1→Y
+Output(2,8,Str1)
+((Str1="O")+1)→[A](1,2)
+End
+If A=74 and [A](1,3)=0
+Then
+3→X:1→Y
+Output(2,10,Str1)
+((Str1="O")+1)→[A](1,3)
+End
+If A=82 and [A](2,1)=0
+Then
+1→X:2→Y
+Output(4,6,Str1
+((Str1="O")+1)→[A](2,1)
+End
+If A=83 and [A](2,2)=0
+Then
+2→X:2→Y
+Output(4,8,Str1
+((Str1="O")+1)→[A](2,2)
+End
+If A=84 and [A](2,3)=0
+Then
+3→X:2→Y
+Output(4,10,Str1
+((Str1="O")+1)→[A](2,3)
+End
+If A=92 and [A](3,1)=0
+Then
+1→X:3→Y
+Output(6,6,Str1
+((Str1="O")+1)→[A](3,1)
+End
+If A=93 and [A](3,2)=0
+Then
+2→X:3→Y
+Output(6,8,Str1
+((Str1="O")+1)→[A](3,2)
+End
+If A=94 and [A](3,3)=0
+Then
+3→X:3→Y
+Output(6,10,Str1
+((Str1="O")+1)→[A](3,3)
+End
+If X≠­1
+Then
+[A](Y,1)→Q
+(Q≠0)→B
+2→W
+While W<4 and B
+(B and [A](Y,W)=Q)→B
+(W+1)→W
+End
+If B
+Then
+Output(1,5,Str1)
+Output(1,6," WINS!")
+""→Str1
+Stop
+End
+[A](1,X)→Q
+(Q≠0)→B
+2→W
+While W<4 and B
+(B and [A](W,X)=Q)→B
+(W+1)→W
+End
+If B
+Then
+Output(1,5,Str1)
+Output(1,6," WINS!"
+""→Str1
+Stop
+End
+[A](1,1)→R
+1→Q
+(R≠0)→B
+While Q<4 and B
+(B and [A](Q,Q)=R)→B
+(Q+1)→Q
+End
+If B
+Then
+Output(1,5,Str1)
+Output(1,6," WINS!"
+""→Str1
+Stop
+End
+1→Q
+[A](1,3)→R
+R≠0→B
+While Q<3 and B
+(B and [A](1+Q,3-Q)=R)→B
+(Q+1)→Q
+End
+If B
+Then
+Output(1,5,Str1)
+Output(1,6," WINS!)
+""→Str1
+Stop
+End
+(T=0)→T
+(C+1)→C
+End
+End
+Output(1,7,"TIE!")
+""→Str1
